@@ -1,5 +1,5 @@
 /*
-Reponsibilities include:
+Responsibilities include:
 1. Presenting a form state (valid, invalid, submitting ...) in the DOM using CSS classes
 2. Passing my data into an API that sends an AJAX request
 */
