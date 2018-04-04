@@ -4,6 +4,7 @@ Responsibilities include:
 2. Passing my data into an API that sends an AJAX request
 */
 
+// A focus on messages reveals the possibility of a FormApi and Validator class
 PartnersEmailSignupForm.prototype.handleSubmit = function(evt) {
   evt.preventDefault();
 

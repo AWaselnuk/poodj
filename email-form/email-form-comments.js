@@ -6,7 +6,6 @@ Reponsibilities include:
 4. Building and sending an AJAX request with an email in it
 */
 
-// What if I wanted to test this?
 PartnersEmailSignupForm.prototype.handleSubmit = function(evt) {
   evt.preventDefault();
 
