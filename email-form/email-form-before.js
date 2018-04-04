@@ -1,14 +1,4 @@
-/*
-Reponsibilities include:
-1. Presenting a form state (valid, invalid, submitting ...) in the DOM using CSS classes
-2. Turning data from the DOM into data suitable for some server
-3. Validating an email address
-4. Building and sending an AJAX request with an email in it
-
-What if I wanted to test this?
-What if I wanted to validate an email in some other class?
-What if I changed how my server works?
-*/
+// Part of a marketing website that collects emails for signups.
 
 PartnersEmailSignupForm.prototype.handleSubmit = function(evt) {
   evt.preventDefault();

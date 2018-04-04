@@ -1,23 +1,26 @@
-// Part of a React app that visualizes information about Shopify Apps you have developed
-
 import {metricSeriesParser} from './helpers/chart_helpers';
 
+// This method seems to be concerned with install metrics so what the heck is "data"?
 function parseInstallMetricsData(data) {
-  // If we want to display a loading state, we need to pass some React component data like {}
+  // Why is a function called parse install metrics also responsible for the state of a GraphQL fetch?
+  // How many other places have this dependency on 'loading' and 'error'? (Spoiler: many)
   if (data.loading || data.error) {
     return {};
   }
 
+  // What happens if currentOrganization changes `app`?
+  // This is dependency hell waiting to happen
   const {installMetrics, shopReactivatedMetrics} = data.currentOrganization.app;
 
   const installMetricsSummary = installMetrics.summary;
   const reactivatedShopsSummary = shopReactivatedMetrics.summary;
 
-  // sort data by date time here ...
   const installMetricsData = installMetrics.byDateTime;
   const reactivatedShopsData = shopReactivatedMetrics.byDateTime;
 
-  // then map over it with some other parser here ...
+  // So we know that the metrics objects have dateTime data but we need this
+  // separate parser function to change that data.
+  // I thought this was the parser function? Whose job is parsing anyways?
   const installMetricsSeries = installMetricsData.map(metricSeriesParser);
   const reactivatedShopsSeries = reactivatedShopsData.map(metricSeriesParser);
 

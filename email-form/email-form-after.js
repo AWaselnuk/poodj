@@ -9,11 +9,12 @@ PartnersEmailSignupForm.prototype.handleSubmit = function(evt) {
 
   if (this.isValid()) {
     this.displayLoading();
+    // Introduce a dependency on FormApi
     FormApi.sendData(this.data())
       .done((response) => this.displaySuccess(response))
       .fail((errors) => this.displayErrors(errors))
       .always(() => {
-        // AjaxForm removes loading class. This adds it back so redirect UX is more seamless.
+        // OC: AjaxForm removes loading class. This adds it back so redirect UX is more seamless.
         this.displayLoading();
       });
   } else {
@@ -22,6 +23,7 @@ PartnersEmailSignupForm.prototype.handleSubmit = function(evt) {
 };
 
 PartnersEmailSignupForm.prototype.isValid = function() {
+  // Introduce a dependency on Validator
   this.errors = Validator.validate({email: this.data().email});
   return this.errors.length;
-}
+};
